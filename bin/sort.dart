@@ -1,6 +1,7 @@
+import 'querySection.dart';
 import 'sortDirection.dart';
 
-class Sort {
+class Sort implements QuerySection{
   String key;
   SortDiretion sortDirection;
 
@@ -9,7 +10,8 @@ class Sort {
     this.sortDirection = sortDirection;
   }
 
-  String toStringQuery() {
+  @override
+  String toQueryString() {
     return 'sort=' + key + ',' + sortDiretionToString();
   }
 

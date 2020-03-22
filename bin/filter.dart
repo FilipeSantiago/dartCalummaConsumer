@@ -1,6 +1,7 @@
+import 'querySection.dart';
 import 'filterOperation.dart';
 
-class Filter {
+class Filter implements QuerySection {
   String key;
   FilterOperation operation;
   String value;
@@ -11,6 +12,7 @@ class Filter {
     this.value = value;
   }
 
+  @override
   String toQueryString() {
     return key + operatorToString() + value;
   }

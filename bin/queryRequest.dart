@@ -1,9 +1,10 @@
+import 'querySection.dart';
 import 'filter.dart';
 import 'filterOperation.dart';
 import 'pagination.dart';
 import 'sortDirection.dart';
 
-class QueryRequest {
+class QueryRequest implements QuerySection{
 
   String endpoint;
   List<Filter> filters;
@@ -68,7 +69,8 @@ class QueryRequest {
     return this;
   }
 
-  String toStringQuery() {
+  @override
+  String toQueryString() {
     var queryFilters = filters.map((filter) => filter.toQueryString());
 
     var filter = queryFilters.join(' and ');

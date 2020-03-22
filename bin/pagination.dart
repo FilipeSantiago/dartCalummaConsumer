@@ -1,7 +1,8 @@
+import 'querySection.dart';
 import 'sort.dart';
 import 'sortDirection.dart';
 
-class Pagination {
+class Pagination implements QuerySection {
   int page;
   int size;
   List<Sort> sortBy;
@@ -38,6 +39,7 @@ class Pagination {
     return this;
   }
 
+  @override
   String toQueryString() {
     var queryString = [];
 
@@ -48,7 +50,7 @@ class Pagination {
       queryString.add('size=' + size.toString());
     }
     if (sortBy.isNotEmpty) {
-      var sortQuery = sortBy.map((sort) => sort.toStringQuery());
+      var sortQuery = sortBy.map((sort) => sort.toQueryString());
       queryString.add(sortQuery.join('&'));
     }
 

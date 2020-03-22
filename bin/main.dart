@@ -15,7 +15,7 @@ void main(List<String> arguments) async {
   request.removeFilter('id');
   request.addSortBy('title', SortDiretion.ASC);
 
-  var requestMaker = await HttpClient().getUrl(Uri.parse(base_url + request.toStringQuery()));
+  var requestMaker = await HttpClient().getUrl(Uri.parse(base_url + request.toQueryString()));
   var response = await requestMaker.close(); 
 
   await for (var contents in response.transform(Utf8Decoder())) {
