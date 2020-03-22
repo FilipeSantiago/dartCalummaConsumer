@@ -1,0 +1,1 @@
+enum FilterOperation { EQUALITY, NEGATION, GREATER_THAN, LESS_THAN, LIKE, IN }
